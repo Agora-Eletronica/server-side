@@ -3,7 +3,8 @@ const express = require('express'),
     cookieParser = require('cookie-parser'),
     logger = require('morgan'),
     helmet = require('helmet'),
-    cors = require('cors');
+    cors = require('cors'),
+    mongoose = require('mongoose');
 
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
@@ -14,6 +15,10 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+
+mongoose.connect(process.env.DB_URI || 'mongodb://localhost:27017/cadastro', {
+    useNewUrlParser: true
+}); 
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
