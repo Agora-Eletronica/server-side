@@ -7,6 +7,7 @@ const express = require('express'),
 
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
+const signupRouter = require('./routes/signup');
  
 app.use(helmet());
 app.use(logger('dev'));
@@ -17,5 +18,6 @@ app.use(cookieParser());
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/signup', signupRouter);
 
 module.exports = app;
