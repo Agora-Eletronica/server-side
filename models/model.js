@@ -72,4 +72,6 @@ const ApiSchema = new Schema({
     UF_nascimento: {
         type: String,
     }
-})
+});
+
+module.exports = model('Cadastro', ApiSchema);
