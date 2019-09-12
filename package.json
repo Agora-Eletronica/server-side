@@ -6,7 +6,12 @@
     "start": "nodemon ./bin/www"
   },
   "dependencies": {
+<<<<<<< HEAD
     "cookie-parser": "~1.4.4",
+=======
+    "bcrypt": "^3.0.6",
+    "cookie-parser": "^1.4.4",
+>>>>>>> e8c40be61258e9994086cf449e4f70d2f0de2f2d
     "cors": "^2.8.5",
     "debug": "~2.6.9",
     "express": "~4.16.1",

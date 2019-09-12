@@ -17,10 +17,15 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
+<<<<<<< HEAD
 mongoose.connect(process.env.DB_URI || 'mongodb://localhost:27017/cadastro', {
     useNewUrlParser: true, useUnifiedTopology: true
+=======
+/*mongoose.connect(process.env.DB_URI || 'mongodb://localhost:27017/cadastro', {
+    useNewUrlParser: true
+>>>>>>> e8c40be61258e9994086cf449e4f70d2f0de2f2d
 }); 
-
+*/
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/signup', signupRouter);
