@@ -18,6 +18,6 @@ app.use(cookieParser());
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/signup', signupRouter);
+app.use(signupRouter);
 
 module.exports = app;
