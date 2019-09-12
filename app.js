@@ -17,10 +17,10 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
-mongoose.connect(process.env.DB_URI || 'mongodb://localhost:27017/cadastro', {
+/*mongoose.connect(process.env.DB_URI || 'mongodb://localhost:27017/cadastro', {
     useNewUrlParser: true
 }); 
-
+*/
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/signup', signupRouter);
