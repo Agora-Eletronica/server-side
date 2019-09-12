@@ -1,7 +1,7 @@
 const { Schema, model } = require('mongoose');
 
 const ApiSchema = new Schema({
-    id: Schema.Types.ObjectId,
+/*    id: Schema.Types.ObjectId,
     nome: {
         type: String,
         required: true,
@@ -19,7 +19,7 @@ const ApiSchema = new Schema({
     cpf: {
         type: Number,
         required: true,
-    },
+    },  */
     usuario: {
         type: String,
         required: true
@@ -28,7 +28,7 @@ const ApiSchema = new Schema({
         type: String,
         required: true,
         select: false
-    },
+    } /*
     nome_do_pai: {
         type: String,
         required: false
@@ -71,7 +71,7 @@ const ApiSchema = new Schema({
     },
     UF_nascimento: {
         type: String,
-    }
+    }  */
 });
 
 module.exports = model('Cadastro', ApiSchema);
