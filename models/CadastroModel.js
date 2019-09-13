@@ -2,6 +2,15 @@ const { Schema, model } = require('mongoose');
 
 const CadastroSchema = new Schema({
     id: Schema.Types.ObjectId,
+    usuario: {
+        type: String,
+        required: true
+    },
+    senha: {
+        type: String,
+        required: true,
+        select: false
+    },
     nome: {
         type: String,
         required: true,

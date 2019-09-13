@@ -3,6 +3,8 @@ const Model = require('../models/CadastroModel');
 module.exports = {
     async store(req, res) {
         const { 
+            usuario,
+            senha,
             nome,
             sobrenome,
             sexo,
@@ -21,6 +23,8 @@ module.exports = {
             uf_nascimento } = req.body;
 
         const cadastro = await Model.create({
+            usuario,
+            senha,
             nome,
             sobrenome,
             sexo,
