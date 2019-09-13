@@ -1,5 +1,5 @@
 const bcrypt = require('bcrypt');
-const modelUser = require('../models/model');
+const modelUser = require('../models/LoginModel');
 
 let userController = {};
 
