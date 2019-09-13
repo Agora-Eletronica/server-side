@@ -1,7 +1,7 @@
 const { Schema, model } = require('mongoose');
 
-const ApiSchema = new Schema({
-/*    id: Schema.Types.ObjectId,
+const CadastroSchema = new Schema({
+    id: Schema.Types.ObjectId,
     nome: {
         type: String,
         required: true,
@@ -13,22 +13,15 @@ const ApiSchema = new Schema({
         minlength: 4
     },
     sexo: {
-        type: Boolean,
+        type: String,
         required: true
     },
     cpf: {
-        type: Number,
-        required: true,
-    },  */
-    usuario: {
-        type: String,
-        required: true
-    },
-    senha: {
         type: String,
         required: true,
+        minlength: 9,
         select: false
-    } /*
+    },
     nome_do_pai: {
         type: String,
         required: false
@@ -39,18 +32,18 @@ const ApiSchema = new Schema({
         minlength: 15
     },
     nascimento: {
-        type: Date,
+        type: Number,
         required: true,
     },
     naturalidade: {
         type: String,
         required: false,
     },
-    UF: {
+    uf: {
         type: String,
         required: false
     },
-    CEP: {
+    cep: {
         type: Number,
         required: true
     },
@@ -69,9 +62,10 @@ const ApiSchema = new Schema({
     municipio: {
         type: String,
     },
-    UF_nascimento: {
+    uf_nascimento: {
         type: String,
-    }  */
+    }
 });
 
-module.exports = model('Cadastro', ApiSchema);
+module.exports = model('Cadastro', CadastroSchema);
+
