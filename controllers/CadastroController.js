@@ -40,6 +40,14 @@ module.exports = {
         });
 
         return res.json(cadastro);
+    },
+
+    async update() {
+
+    },
+
+    async destroy() {
+        
     }
 
 }
