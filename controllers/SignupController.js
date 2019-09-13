@@ -1,4 +1,4 @@
-const Model = require('../models/model');
+const Model = require('../models/LoginModel');
 
 module.exports = {
     async store(req, res){
