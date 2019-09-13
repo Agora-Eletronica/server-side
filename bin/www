@@ -52,9 +52,9 @@ function normalizePort(val) {
 
 /**Connecting to Database */
 
-//mongoose.connect('mongodb+srv://luck6o:lucas123alves@cluster0-lbuds.mongodb.net/alves?retryWrites=true&w=majority', {
-    //useNewUrlParser: true
-//});
+mongoose.connect('mongodb+srv://luck6o:lucas123alves@cluster0-lbuds.mongodb.net/alves?retryWrites=true&w=majority', {
+    useNewUrlParser: true, useUnifiedTopology: true
+});
 
 
 /**
