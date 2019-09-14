@@ -8,5 +8,13 @@ module.exports = {
         })
         return res.json(profile);
   
+    },
+
+    async update(req, res) {
+
+    },
+
+    async destroy(req, res) {
+
     }
 };

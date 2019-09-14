@@ -53,7 +53,7 @@ function normalizePort(val) {
 /**Connecting to Database */
 
 mongoose.connect('mongodb+srv://luck6o:lucas123alves@cluster0-lbuds.mongodb.net/alves?retryWrites=true&w=majority', {
-    useNewUrlParser: true, useUnifiedTopology: true
+    useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false
 });
 
 
