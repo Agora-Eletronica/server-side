@@ -19,10 +19,6 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
-/*mongoose.connect(process.env.DB_URI || 'mongodb://localhost:27017/cadastro', {
-    useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false
-}); */
-
 app.use('/', indexRouter);
 app.use('/', signupRouter);
 app.use('/', cadastroRouter);
