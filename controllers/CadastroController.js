@@ -1,11 +1,19 @@
 const Model = require('../models/CadastroModel');
 
 module.exports = {
+
+    async index(req, res) {
+
+        nome = req.params;
+
+        const usuarioLogado = await Model.findOne(nome);
+
+        return res.json(usuarioLogado);
+
+    },
+
     async store(req, res) {
         const { 
-            _id,
-            usuario,
-            senha,
             nome,
             sobrenome,
             sexo,
@@ -23,10 +31,11 @@ module.exports = {
             municipio,
             uf_nascimento } = req.body;
 
+        const usuarioLogado = await Model.findOne(nome);
+
+        if(usuarioLogado) return res.json({message: "Usuário já cadastrado"});
+
         const cadastro = await Model.create({
-            _id,
-            usuario,
-            senha,
             nome,
             sobrenome,
             sexo,
@@ -48,58 +57,21 @@ module.exports = {
         return res.json(cadastro);
     },
 
-    async update() {
-        exports.update = (req, res) => {
-            if(!req.body._id) {
-                return res.status(400).send({
-                    message: "It can not be empty"
-                });
-            }
-        
-            // Find usuario and update it with the request body
-            Model.findByIdAndUpdate(req.params.cadastroId, {
-                usuario: req.body.usuario,
-                senha:req.body.senha,
-                nome:req.body.nome,
-                sobrenome:req.body.sobrenome,
-                sexo:req.body.sexo,
-                cpf:req.body.cpf,
-                nome_do_pai:req.body.nome_do_pai,
-                nome_da_mãe:req.body.nome_da_mãe,
-                nascimento:req.body.nascimento,
-                naturalidade:req.body.naturalidade,
-                uf:req.body.uf,
-                cep:req.body.cep,
-                logradouro:req.body.logradouro,
-                numero:req.body.numero,
-                complemento:req.body.complemento,
-                bairro: req.body.bairro,
-                municipio:req.body.municipio,
-                uf_nascimento:req.body.uf_nascimento,
-            }, {new: true})
-            .then(usuario => {
-                if(!usuario) {
-                    return res.status(404).send({
-                        message: "User not found with id " + req.params.cadastroId
-                    });
-                }
-                res.send(usuario);
-            }).catch(err => {
-                if(err.kind === 'ObjectId') {
-                    return res.status(404).send({
-                        message: "User not found with id " + req.params.cadastroId
-                    });                
-                }
-                return res.status(500).send({
-                    message: "Error updating user with id " + req.params.cadastroId
-                });
-            });
-        };
+    async update(req, res) {
 
+        const usuarioExiste = await Model.findOne(req.body.usuario);
+
+        if(!usuarioExiste) return res.json({ message: "Usuário não existe" });
+
+        const usuario = await Model.findByIdAndUpdate(req.params.id, req.body, { new: true });
+
+        return res.json(usuario);
     },
 
-    async destroy() {
-        
+    async destroy(req, res) {
+        await Model.findByIdAndRemove(req.params.id);
+
+        return res.json({ message: "Usuário excluido com sucesso" });
     }
 
 }
