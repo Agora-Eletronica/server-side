@@ -4,9 +4,9 @@ module.exports = {
 
     async index(req, res) {
 
-        id = req.params;
+        id = req.params.id;
 
-        const usuarioLogado = await Model.findOne(id);
+        const usuarioLogado = await Model.findOne({id});
 
         return res.json(usuarioLogado);
 
@@ -31,7 +31,7 @@ module.exports = {
             municipio,
             uf_nascimento } = req.body;
 
-        const usuarioLogado = await Model.findOne(nome);
+        const usuarioLogado = await Model.findOne({nome});
 
         if(usuarioLogado) return res.json({message: "Usuário já cadastrado"});
 

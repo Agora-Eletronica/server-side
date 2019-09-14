@@ -52,8 +52,10 @@ function normalizePort(val) {
 
 /**Connecting to Database */
 
-mongoose.connect('mongodb+srv://luck6o:lucas123alves@cluster0-lbuds.mongodb.net/alves?retryWrites=true&w=majority', {
-    useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false
+mongoose.connect(process.env.DB_URI || "mongodb://localhost:27017", {
+  useNewUrlParser: true, 
+  useUnifiedTopology: true, 
+  useFindAndModify: false
 });
 
 
