@@ -4,9 +4,9 @@ module.exports = {
 
     async index(req, res) {
 
-        nome = req.params;
+        id = req.params;
 
-        const usuarioLogado = await Model.findOne(nome);
+        const usuarioLogado = await Model.findOne(id);
 
         return res.json(usuarioLogado);
 
